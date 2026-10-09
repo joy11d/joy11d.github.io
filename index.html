@@ -510,15 +510,27 @@ img {
 }
 
 .badge-tag {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: 0.2px;
   color: var(--accent-cyan);
   background: var(--accent-cyan-glow);
-  padding: 4px 12px;
-  border-radius: var(--radius-sm);
+  border: 1.5px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.15);
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
   width: fit-content;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
+  transition: all var(--transition-normal);
+}
+
+[data-theme="light"] .badge-tag {
+  border-color: rgba(2, 132, 199, 0.35);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.12);
 }
 
 .hero-name {
@@ -1748,7 +1760,9 @@ img {
   }
 
   .badge-tag {
-    margin: 0 auto 12px;
+    margin: 0 auto 14px;
+    font-size: 0.95rem;
+    padding: 7px 16px;
   }
 
   .academic-badges,
@@ -1934,7 +1948,13 @@ img {
           </div>
 
           <div class="hero-intro">
-            <div class="badge-tag">Ph.D. Candidate &bull; Mechanical Engineering & AI</div>
+            <div class="badge-tag">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <span>Ph.D. Candidate &bull; Mechanical Engineering & AI</span>
+            </div>
             <h1 class="hero-name">MD Sanaul Haque Joy</h1>
             <p class="hero-affiliation">
               Researcher & Mechanical Engineering Graduate<br>
