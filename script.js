@@ -268,8 +268,36 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') {
     closeBibtex();
     closeLightbox();
+    closeCvModal();
   }
 });
+
+// ===================================================================
+// 8.5. CV VIEWER MODAL
+// ===================================================================
+const cvModal = document.getElementById('cvModal');
+
+function openCvModal() {
+  if (!cvModal) return;
+  cvModal.classList.add('open');
+  cvModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCvModal() {
+  if (!cvModal) return;
+  cvModal.classList.remove('open');
+  cvModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+if (cvModal) {
+  cvModal.addEventListener('click', (e) => {
+    if (e.target === cvModal) {
+      closeCvModal();
+    }
+  });
+}
 
 // ===================================================================
 // 9. TOAST NOTIFICATION UTILITY

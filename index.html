@@ -2084,6 +2084,206 @@ img {
   }
 }
 
+
+/* ===================================================================
+   CV VIEWER MODAL
+   =================================================================== */
+.cv-modal-overlay {
+  z-index: 10000;
+}
+
+.cv-modal-dialog {
+  max-width: 940px;
+  width: 95%;
+  max-height: 94vh;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card-solid);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+}
+
+.cv-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.cv-modal-title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cv-modal-title-group svg {
+  color: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.cv-modal-title-group h3 {
+  font-size: 1.2rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.cv-modal-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 2px 0 0;
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 18px;
+  box-shadow: 0 4px 14px rgba(6, 182, 212, 0.3);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+}
+
+.cv-newtab-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  background: transparent;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.cv-newtab-btn:hover {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  background: var(--accent-cyan-glow);
+}
+
+.cv-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cv-document-viewer {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 820px;
+}
+
+.cv-page-container {
+  position: relative;
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="light"] .cv-page-container {
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.cv-page-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(10, 14, 23, 0.8);
+  color: #f8fafc;
+  font-size: 0.74rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.cv-page-img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cv-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-secondary);
+  flex-shrink: 0;
+  gap: 12px;
+}
+
+.cv-footer-info {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+.cv-footer-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .cv-modal-dialog {
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .cv-modal-header,
+  .cv-modal-footer {
+    padding: 12px 16px;
+  }
+
+  .cv-modal-body {
+    padding: 12px;
+  }
+
+  .cv-download-text {
+    display: none;
+  }
+
+  .cv-download-btn {
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  .cv-footer-info {
+    display: none;
+  }
+}
 </style>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -2130,15 +2330,16 @@ img {
           </svg>
         </button>
 
-        <!-- CV Action Button -->
-        <a href="#contact" class="btn btn-outline cv-btn" download>
+        <!-- CV Action Button (Click to View CV) -->
+        <button type="button" class="btn btn-outline cv-btn" onclick="openCvModal()" aria-label="View Curriculum Vitae" title="View Curriculum Vitae">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
           </svg>
-          <span>CV</span>
-        </a>
+          <span>View CV</span>
+        </button>
 
         <!-- Mobile Menu Toggle Button -->
         <button id="mobileToggle" class="btn-icon mobile-menu-btn" aria-label="Toggle navigation menu">
@@ -2222,7 +2423,16 @@ img {
                   <polyline points="9 18 15 12 9 6"></polyline>
                 </svg>
               </a>
-              <a href="#publications" class="btn btn-secondary">Publications</a>
+              <button type="button" class="btn btn-secondary" onclick="openCvModal()">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                  <line x1="16" y1="13" x2="8" y2="13"></line>
+                  <line x1="16" y1="17" x2="8" y2="17"></line>
+                </svg>
+                View CV
+              </button>
+              <a href="#publications" class="btn btn-ghost">Publications</a>
               <a href="#contact" class="btn btn-ghost">Get in Touch</a>
             </div>
           </div>
@@ -3070,20 +3280,29 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
               </div>
             </div>
 
-            <!-- Quick Download CV Box -->
+            <!-- Quick Download & View CV Box -->
             <div class="cv-download-box glass-panel">
               <div class="cv-text">
                 <h4>Curriculum Vitae (CV)</h4>
-                <p>Complete academic record including research projects, coursework, and technical skills (PDF).</p>
+                <p>Complete academic record including research projects, coursework, and technical skills (PDF, 136 KB).</p>
               </div>
-              <a href="#contact" class="btn btn-primary" onclick="alert('Place your cv.pdf into academic-portfolio/assets/cv.pdf to enable direct download!')">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
-                </svg>
-                Download Full CV
-              </a>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button type="button" class="btn btn-outline" onclick="openCvModal()">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                    <circle cx="12" cy="12" r="3"></circle>
+                  </svg>
+                  View CV
+                </button>
+                <a href="assets/MD_Sanaul_Haque_Joy_CV.pdf" download="MD_Sanaul_Haque_Joy_CV.pdf" class="btn btn-primary">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                  </svg>
+                  Download PDF
+                </a>
+              </div>
             </div>
           </div>
 
@@ -3152,6 +3371,80 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
       </div>
     </div>
   </footer>
+
+    <!-- ================= CV VIEWER MODAL ================= -->
+  <div class="modal-overlay cv-modal-overlay" id="cvModal" aria-hidden="true">
+    <div class="cv-modal-dialog glass-panel" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
+      <div class="cv-modal-header">
+        <div class="cv-modal-title-group">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+          </svg>
+          <div>
+            <h3 id="cvModalTitle">Curriculum Vitae</h3>
+            <p class="cv-modal-sub">MD Sanaul Haque Joy &bull; CUET Mechanical Engineering</p>
+          </div>
+        </div>
+        
+        <!-- Top Right Actions: Download Icon & Close -->
+        <div class="cv-modal-actions">
+          <a href="assets/MD_Sanaul_Haque_Joy_CV.pdf" download="MD_Sanaul_Haque_Joy_CV.pdf" class="btn btn-primary cv-download-btn" title="Download CV as PDF">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span class="cv-download-text">Download CV</span>
+          </a>
+
+          <a href="assets/MD_Sanaul_Haque_Joy_CV.pdf" target="_blank" rel="noopener" class="btn-icon cv-newtab-btn" title="Open PDF in new tab">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+              <polyline points="15 3 21 3 21 9"></polyline>
+              <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+          </a>
+
+          <button class="modal-close-btn" onclick="closeCvModal()" aria-label="Close CV viewer">&times;</button>
+        </div>
+      </div>
+
+      <div class="cv-modal-body">
+        <div class="cv-document-viewer">
+          <div class="cv-page-container">
+            <div class="cv-page-badge">Page 1 of 3</div>
+            <img src="assets/cv_page_1.png" alt="MD Sanaul Haque Joy CV Page 1" class="cv-page-img" loading="eager">
+          </div>
+          <div class="cv-page-container">
+            <div class="cv-page-badge">Page 2 of 3</div>
+            <img src="assets/cv_page_2.png" alt="MD Sanaul Haque Joy CV Page 2" class="cv-page-img" loading="lazy">
+          </div>
+          <div class="cv-page-container">
+            <div class="cv-page-badge">Page 3 of 3</div>
+            <img src="assets/cv_page_3.png" alt="MD Sanaul Haque Joy CV Page 3" class="cv-page-img" loading="lazy">
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-modal-footer">
+        <span class="cv-footer-info">Official 3-Page Academic CV &bull; PDF File (136 KB)</span>
+        <div class="cv-footer-btns">
+          <button class="btn btn-outline" onclick="closeCvModal()">Close</button>
+          <a href="assets/MD_Sanaul_Haque_Joy_CV.pdf" download="MD_Sanaul_Haque_Joy_CV.pdf" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= BIBTEX MODAL ================= -->
   <div class="modal-overlay" id="bibtexModal" aria-hidden="true">
