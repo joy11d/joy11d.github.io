@@ -2524,6 +2524,185 @@ img {
     grid-template-columns: 1fr;
   }
 }
+
+/* ===================================================================
+   EXTRACURRICULAR & LEADERSHIP ACTIVITIES
+   =================================================================== */
+.eca-subsection {
+  margin-top: 56px;
+  padding-top: 42px;
+  border-top: 1px dashed var(--border-color);
+}
+
+.eca-header {
+  margin-bottom: 28px;
+}
+
+.eca-badge-wrap {
+  margin-bottom: 8px;
+}
+
+.exp-type-tag.eca-tag {
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.15);
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.eca-main-title {
+  font-family: var(--font-heading);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.eca-main-subtitle {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+}
+
+.eca-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 22px;
+}
+
+.eca-card {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 22px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  transition: transform var(--transition-normal), border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.eca-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-cyan);
+  box-shadow: 0 10px 26px rgba(6, 182, 212, 0.14);
+}
+
+.eca-card-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.eca-logo-wrapper {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  border: 2px solid rgba(6, 182, 212, 0.3);
+  flex-shrink: 0;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.eca-card:hover .eca-logo-wrapper {
+  transform: scale(1.08);
+  border-color: var(--accent-cyan);
+}
+
+.eca-logo-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.eca-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.eca-role {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.eca-org {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--accent-cyan);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.eca-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.eca-timeline {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color);
+}
+
+[data-theme="light"] .eca-timeline {
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.eca-role-tag {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  background: rgba(99, 102, 241, 0.12);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.25);
+}
+
+.eca-desc {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.eca-desc ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.eca-desc li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.eca-desc li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 7px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+}
 </style>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -3337,6 +3516,136 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
             </div>
           </div>
 
+        </div>
+
+        <!-- Extra-Curricular & Leadership Subsection -->
+        <div class="eca-subsection">
+          <div class="eca-header">
+            <div class="eca-badge-wrap">
+              <span class="exp-type-tag eca-tag">Leadership &amp; Co-Curricular</span>
+            </div>
+            <h3 class="eca-main-title">Extra-Curricular Activities &amp; Leadership</h3>
+            <p class="eca-main-subtitle">Executive leadership, science council mentorship, and professional engineering chapter responsibilities.</p>
+          </div>
+
+          <div class="eca-grid">
+            
+            <!-- Item 1: Notre Dame Science Club -->
+            <div class="eca-card glass-panel">
+              <div class="eca-card-top">
+                <div class="eca-logo-wrapper" onclick="openLightbox('assets/logo_ndsc.jpg', 'Notre Dame Science Club Dhaka')" style="cursor: pointer;" title="Click to view logo">
+                  <img src="assets/logo_ndsc.jpg" alt="Notre Dame Science Club Logo" loading="lazy">
+                </div>
+                <div class="eca-card-info">
+                  <h4 class="eca-role">Vice President (LWS)</h4>
+                  <div class="eca-org">Notre Dame Science Club (NDSC)</div>
+                  <div class="eca-meta-row">
+                    <span class="eca-timeline">2019 &ndash; 2020</span>
+                    <span class="eca-role-tag">Executive Board</span>
+                  </div>
+                </div>
+              </div>
+              <div class="eca-desc">
+                <ul>
+                  <li>Served as <strong>Vice President of Literary, Workshop &amp; Seminar (LWS)</strong>, directing scientific seminars, skill-building workshops, and academic publications.</li>
+                  <li>Co-led the organization and management of the prestigious <strong>Annual National Science Carnival</strong> at Notre Dame College, engaging thousands of participants nationwide.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Item 2: ISTARC (Ideal Science & Technology Aiming Research Council) -->
+            <div class="eca-card glass-panel">
+              <div class="eca-card-top">
+                <div class="eca-logo-wrapper" onclick="openLightbox('assets/logo_istarc.png', 'Ideal Science and Technology Aiming Research Council (ISTARC)')" style="cursor: pointer;" title="Click to view logo">
+                  <img src="assets/logo_istarc.png" alt="ISTARC Logo" loading="lazy">
+                </div>
+                <div class="eca-card-info">
+                  <h4 class="eca-role">Vice President</h4>
+                  <div class="eca-org">Ideal Science &amp; Technology Aiming Research Council (ISTARC)</div>
+                  <div class="eca-meta-row">
+                    <span class="eca-timeline">2017 &ndash; 2018</span>
+                    <span class="eca-role-tag">Executive Board</span>
+                  </div>
+                </div>
+              </div>
+              <div class="eca-desc">
+                <ul>
+                  <li>Elected <strong>Vice President</strong> to lead STEM research initiatives, project mentoring, and science Olympiad training for student members.</li>
+                  <li>Spearheaded execution of the <strong>ISTARC Science &amp; Technology Festival</strong>, coordinating scientific competitions, research exhibitions, and logistics.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Item 3: ASHRAE CUET Student Branch -->
+            <div class="eca-card glass-panel">
+              <div class="eca-card-top">
+                <div class="eca-logo-wrapper" onclick="openLightbox('assets/logo_ashrae.png', 'ASHRAE CUET Student Branch')" style="cursor: pointer;" title="Click to view logo">
+                  <img src="assets/logo_ashrae.png" alt="ASHRAE CUET Student Branch Logo" loading="lazy">
+                </div>
+                <div class="eca-card-info">
+                  <h4 class="eca-role">Committee Member</h4>
+                  <div class="eca-org">ASHRAE CUET Student Branch</div>
+                  <div class="eca-meta-row">
+                    <span class="eca-timeline">Chittagong University of Engineering &amp; Technology</span>
+                    <span class="eca-role-tag">Technical Society</span>
+                  </div>
+                </div>
+              </div>
+              <div class="eca-desc">
+                <ul>
+                  <li>Actively contributed to organizing technical seminars on <strong>HVAC&amp;R engineering</strong>, building energy efficiency, and thermal system sustainability.</li>
+                  <li>Facilitated student engagement with global ASHRAE standards, industrial webinars, and professional engineering mentorship programs.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Item 4: ASME CUET Student Chapter -->
+            <div class="eca-card glass-panel">
+              <div class="eca-card-top">
+                <div class="eca-logo-wrapper" onclick="openLightbox('assets/logo_asme.jpg', 'ASME CUET Student Chapter')" style="cursor: pointer;" title="Click to view logo">
+                  <img src="assets/logo_asme.jpg" alt="ASME CUET Student Chapter Logo" loading="lazy">
+                </div>
+                <div class="eca-card-info">
+                  <h4 class="eca-role">Committee Member</h4>
+                  <div class="eca-org">ASME CUET Student Chapter</div>
+                  <div class="eca-meta-row">
+                    <span class="eca-timeline">Chittagong University of Engineering &amp; Technology</span>
+                    <span class="eca-role-tag">Professional Chapter</span>
+                  </div>
+                </div>
+              </div>
+              <div class="eca-desc">
+                <ul>
+                  <li>Coordinated mechanical engineering design symposiums, student technical challenges, and industrial guest speaker sessions.</li>
+                  <li>Promoted professional growth aligned with the American Society of Mechanical Engineers (ASME) guidelines.</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Item 5: CUET CAD Society -->
+            <div class="eca-card glass-panel">
+              <div class="eca-card-top">
+                <div class="eca-logo-wrapper" onclick="openLightbox('assets/logo_cuet_cad.jpg', 'CUET CAD Society')" style="cursor: pointer;" title="Click to view logo">
+                  <img src="assets/logo_cuet_cad.jpg" alt="CUET CAD Society Logo" loading="lazy">
+                </div>
+                <div class="eca-card-info">
+                  <h4 class="eca-role">Committee Member</h4>
+                  <div class="eca-org">CUET CAD Society</div>
+                  <div class="eca-meta-row">
+                    <span class="eca-timeline">Chittagong University of Engineering &amp; Technology</span>
+                    <span class="eca-role-tag">Design &amp; Modeling</span>
+                  </div>
+                </div>
+              </div>
+              <div class="eca-desc">
+                <ul>
+                  <li>Assisted in conducting hands-on <strong>SolidWorks &amp; 3D Computer-Aided Design (CAD)</strong> training bootcamps for engineering students.</li>
+                  <li>Organized parametric modeling competitions, mechanical drafting workshops, and peer-to-peer technical guidance.</li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
