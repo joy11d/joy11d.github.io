@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
@@ -922,7 +922,7 @@ img {
 }
 
 .card-feature-list li::before {
-  content: 'â–¸';
+  content: '\25B8';
   position: absolute;
   left: 0;
   color: var(--accent-cyan);
@@ -1099,7 +1099,7 @@ img {
 }
 
 .bullet-highlights li::before {
-  content: 'âœ“';
+  content: '\2713';
   position: absolute;
   left: 0;
   color: var(--accent-emerald);
@@ -1628,14 +1628,18 @@ img {
 
 .service-list li {
   position: relative;
-  padding-left: 16px;
+  padding-left: 18px;
 }
 
 .service-list li::before {
-  content: 'â€¢';
+  content: "";
   position: absolute;
-  left: 0;
-  color: var(--accent-cyan);
+  left: 2px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
 }
 
 /* ================= CONTACT ================= */
@@ -2409,17 +2413,20 @@ img {
 .exp-bullet-list li {
   font-size: 0.86rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.6;
   position: relative;
-  padding-left: 18px;
+  padding-left: 20px;
 }
 
 .exp-bullet-list li::before {
-  content: "â€¢";
+  content: "";
   position: absolute;
   left: 4px;
-  color: var(--accent-cyan);
-  font-weight: bold;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
 }
 
 .exp-cert-box {
