@@ -3045,8 +3045,8 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
         <!-- Filter & Search Controls -->
         <div class="pub-controls">
           <div class="pub-filter-tabs">
-            <button class="pub-filter-btn active" data-filter="all">All (3)</button>
-            <button class="pub-filter-btn" data-filter="journal">Journals (2)</button>
+            <button class="pub-filter-btn active" data-filter="all">All (2)</button>
+            <button class="pub-filter-btn" data-filter="journal">Journals (1)</button>
             <button class="pub-filter-btn" data-filter="conference">Conferences (1)</button>
             <button class="pub-filter-btn" data-filter="preprint">Preprints (0)</button>
           </div>
@@ -3063,86 +3063,43 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
         <!-- Publications List -->
         <div class="pub-list" id="pubList">
 
-          <!-- Paper 1 -->
-          <article class="pub-card glass-panel" data-type="journal" data-year="2025">
+          <!-- Paper 1: Journal (Under Preparation) -->
+          <article class="pub-card glass-panel" data-type="journal" data-year="2026">
             <div class="pub-badge-row">
-              <span class="pub-type-tag journal">IEEE TII 2025</span>
-              <span class="pub-status-badge">Featured Paper</span>
-              <span class="pub-year">2025</span>
+              <span class="pub-type-tag journal">Journal Article</span>
+              <span class="pub-status-badge">Manuscript in Preparation</span>
+              <span class="pub-year">Forthcoming</span>
             </div>
             <h3 class="pub-title">
-              Physics-Informed Gated Recurrent Unit (PI-GRU) for Cross-Dataset Remaining Useful Life Prediction of Lithium-Ion Batteries
+              Physics Informed Feature Engineering and a Dual Branch GRU for Cross Chemistry Prediction of Lithium-Ion Battery Remaining Useful Life
             </h3>
             <p class="pub-authors">
-              <strong>MD Sanaul Haque Joy*</strong>, Collaborator 1, Collaborator 2
+              <strong>MD Sanaul Haque Joy*</strong>, Prof. Dr. Prasanjit Das
             </p>
             <p class="pub-venue">
-              <em>IEEE Transactions on Industrial Informatics</em>, 2025.
+              <em>Manuscript in Preparation</em> &bull; Target: International Journal in Energy Storage / Applied AI, 2026.
+              <span style="display: inline-block; margin-left: 6px; color: var(--accent-cyan); font-size: 0.84rem; font-weight: 500;">(To be submitted for publication)</span>
             </p>
             <div class="pub-abstract" id="abs-1">
-              Data-driven state estimation models for lithium-ion batteries often fail out-of-sample due to sequence overfitting and non-physical capacity restoration artifacts. In this paper, we propose a Physics-Informed Gated Recurrent Unit (PI-GRU) that incorporates internal monotonicity loss and degradation bounds. Evaluated across 14 cells under Leave-One-Battery-Out (LOBO) validation, PI-GRU achieves an MAE of 45.83 cycles (a 23.7% reduction vs standard GRU) and RÂ² of 0.9653 with zero physical violations.
+              The remaining useful life (RUL) of lithium-ion batteries is a key aspect of safe and cost-effective electric vehicles (EVs) and grid storage operations. Numerous data driven studies claim to predict the battery's life with near perfect accuracy which fails to survive rigorous evaluation. One recurring flaw is the use of the cycle index as an input feature which is direct proxy for RUL. Another flaw is random train/test splitting where cycles from the same cell go to both train and test that affects the accuracy reported and makes it harder to determine whether a model generalizes to unseen cells. This work develops a leakage-controlled framework for RUL prediction and evaluates it honestly. From per cycle measurements of 14 NMC-LCO cells (HNEI dataset) we extract physics informed features reflecting capacity fade, state of health, charging profile evolution and voltage dynamics. To leverage these features, we introduce a dual branch gated recurrent unit (GRU) that separates long range temporal patterns from instantaneous health indicators. Under 14-fold leave one battery out (LOBO) cross validation, the model predicts held out cells with a mean absolute error of 3.71 % of battery life (R&sup2; = 0.968). A controlled ablation shows that once physically meaningful features are supplied, auxiliary physics based loss terms provide no measurable accuracy benefit, isolating feature engineering and architecture as the true drivers of performance. Permutation importance computed out of sample confirms that predictions are governed by capacity fade signals rather than cycle count. Finally, to test generalization beyond a single chemistry, the model trained solely on HNEI cells is evaluated on four unseen NASA cells of different capacity, laboratory and protocol. By employing a percentage of life target, it achieved a mean absolute error of 10.85 % of life (R&sup2; = 0.694) with no target domain training data. The results have shown that good feature design with a strict leakage check of the features are the answers. This evaluation has resulted in interpretable and transferable RUL models for battery chemistries.
             </div>
             <div class="pub-actions">
               <button class="btn-action toggle-abs-btn" onclick="toggleAbstract('abs-1', this)">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 Abstract
               </button>
-              <a href="#" class="btn-action" title="Download PDF (Demo Link)">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-                PDF
-              </a>
-              <button class="btn-action bibtex-btn" onclick="openBibtex('joy2025pigru')">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                BibTeX
-              </button>
-              <a href="https://github.com/joy11d" target="_blank" rel="noopener" class="btn-action">
+              <a href="https://github.com/joy11d/battery-rul-prediction" target="_blank" rel="noopener" class="btn-action">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
                 Code Repository
               </a>
-              <a href="#" class="btn-action doi-link" target="_blank" rel="noopener">DOI: 10.1109/TII.2025.10928</a>
+              <span class="btn-action" style="cursor: default; opacity: 0.9;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 14 14"></polyline></svg>
+                Manuscript in Preparation
+              </span>
             </div>
           </article>
 
-          <!-- Paper 2 -->
-          <article class="pub-card glass-panel" data-type="journal" data-year="2024">
-            <div class="pub-badge-row">
-              <span class="pub-type-tag journal">J. Power Sources</span>
-              <span class="pub-year">2024</span>
-            </div>
-            <h3 class="pub-title">
-              Leave-One-Battery-Out (LOBO) Cross-Validation: Benchmarking True Generalization in Degradation Prognostics
-            </h3>
-            <p class="pub-authors">
-              <strong>MD Sanaul Haque Joy*</strong>, Collaborator 1, Collaborator 2
-            </p>
-            <p class="pub-venue">
-              <em>Journal of Power Sources</em>, Vol. 589, 233761, 2024.
-            </p>
-            <div class="pub-abstract" id="abs-2">
-              We systematically demonstrate that standard k-fold random splitting produces artificially inflated evaluation metrics due to inter-cycle sequence correlation. We introduce the open-source LOBO benchmark protocol across NASA and HNEI repositories, evaluating seven prominent deep learning regressors and quantifying cross-cell generalization gaps.
-            </div>
-            <div class="pub-actions">
-              <button class="btn-action toggle-abs-btn" onclick="toggleAbstract('abs-2', this)">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                Abstract
-              </button>
-              <a href="#" class="btn-action">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                PDF
-              </a>
-              <button class="btn-action bibtex-btn" onclick="openBibtex('joy2024lobo')">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                BibTeX
-              </button>
-              <a href="https://github.com/joy11d" target="_blank" rel="noopener" class="btn-action">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-                Benchmark Code
-              </a>
-              <a href="#" class="btn-action doi-link" target="_blank" rel="noopener">DOI: 10.1016/j.jpowsour.2024.233761</a>
-            </div>
-          </article>
-
-          <!-- Paper 3: Conference -->
+          <!-- Paper 2: Conference -->
           <article class="pub-card glass-panel" data-type="conference" data-year="2025">
             <div class="pub-badge-row">
               <span class="pub-type-tag conference">ICERIE 2025</span>
@@ -3159,11 +3116,11 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
               <em>International Conference on Engineering Research, Innovation and Education (ICERIE)</em>, 2025.
               <span style="display: inline-block; margin-left: 6px; color: var(--accent-cyan); font-size: 0.84rem; font-weight: 500;">(Undergraduate Thesis Project &bull; Selected for Presentation)</span>
             </p>
-            <div class="pub-abstract" id="abs-3">
+            <div class="pub-abstract" id="abs-2">
               Accurate prediction of the Remaining Useful Life (RUL) of lithium-ion batteries is essential for reliable predictive maintenance and the safe, economical operation of electric vehicles and energy storage systems. Physics based degradation models require deep domain knowledge and generalize poorly, motivating data driven alternatives. However, it remains unclear which machine learning model is most accurate and robust on batteries unseen during training. This study develops and compares seven models, which are Random Forest (RF), XGBoost, Support Vector Regression (SVR), Gaussian Process Regression (GPR), Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), on a public dataset of fourteen NMC-LCO 18650 cells using Mean Absolute Error (MAE), Root Mean Square Error (RMSE) and the coefficient of determination (R&sup2;). Two validation schemes were applied: a conventional random 80/20 split and a stricter leave battery out protocol emulating deployment on new cells. Under the random split, RF gave the lowest error (MAE 2.12 cycles), but its MAE rose by 135% under leave battery out testing, revealing that random splits inflate performance through cell level data leakage. On unseen batteries the recurrent GRU generalized best (MAE 4.49 cycles, RMSE 5.23 cycles, R&sup2; 0.9997). SHAP analysis showed that tabular models depend almost solely on cycle index, whereas LSTM and GRU exploit physical degradation indicators, explaining their superior generalization. GRU is therefore recommended for practical battery health management, and leave battery out validation as the realistic benchmark for battery prognostics.
             </div>
             <div class="pub-actions">
-              <button class="btn-action toggle-abs-btn" onclick="toggleAbstract('abs-3', this)">
+              <button class="btn-action toggle-abs-btn" onclick="toggleAbstract('abs-2', this)">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 Abstract
               </button>

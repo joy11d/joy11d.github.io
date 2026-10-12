@@ -9,24 +9,12 @@
 // 1. BIBTEX CITATION DATABASE
 // ===================================================================
 const BIBTEX_DATABASE = {
-  joy2025pigru: `@article{joy2025pigru,
-  title     = {Physics-Informed Gated Recurrent Unit (PI-GRU) for Cross-Dataset Remaining Useful Life Prediction of Lithium-Ion Batteries},
-  author    = {Joy, MD Sanaul Haque and Collaborators},
-  journal   = {IEEE Transactions on Industrial Informatics},
-  year      = {2025},
-  publisher = {IEEE},
-  doi       = {10.1109/TII.2025.10928}
-}`,
-
-  joy2024lobo: `@article{joy2024lobo,
-  title     = {Leave-One-Battery-Out (LOBO) Cross-Validation: Benchmarking True Generalization in Degradation Prognostics},
-  author    = {Joy, MD Sanaul Haque and Collaborators},
-  journal   = {Journal of Power Sources},
-  volume    = {589},
-  pages     = {233761},
-  year      = {2024},
-  publisher = {Elsevier},
-  doi       = {10.1016/j.jpowsour.2024.233761}
+  joy2026crosschem: `@article{joy2026crosschem,
+  title     = {Physics Informed Feature Engineering and a Dual Branch GRU for Cross Chemistry Prediction of Lithium-Ion Battery Remaining Useful Life},
+  author    = {Joy, MD Sanaul Haque and Das, Prasanjit},
+  journal   = {Manuscript in Preparation},
+  year      = {2026},
+  note      = {To be submitted for publication}
 }`,
 
   joy2025icerie: `@inproceedings{joy2025comparative,
