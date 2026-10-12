@@ -1104,18 +1104,27 @@ img {
 
 .math-code-box {
   padding: 24px;
-  background: var(--code-bg);
+  background: #0d121f;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f1f5f9;
 }
 
 .math-code-box h4 {
   font-size: 1.15rem;
   margin-bottom: 8px;
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+.math-code-box p {
+  color: #cbd5e1 !important;
+  font-size: 0.92rem;
+  line-height: 1.55;
 }
 
 .code-snippet {
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.55);
   padding: 16px;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
@@ -1124,14 +1133,37 @@ img {
   color: #38bdf8;
   margin: 16px 0;
   line-height: 1.5;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .code-comment {
-  color: #64748b;
+  color: #94a3b8;
 }
 
 .action-bar-code {
   margin-top: 14px;
+}
+
+.math-code-box .btn-outline {
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.math-code-box .btn-outline svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+.math-code-box .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent-cyan) !important;
+  color: var(--accent-cyan) !important;
+}
+
+.math-code-box .btn-outline:hover svg {
+  color: var(--accent-cyan) !important;
+  fill: var(--accent-cyan) !important;
 }
 
 /* ================= PUBLICATIONS ================= */
