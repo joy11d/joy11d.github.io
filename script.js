@@ -29,11 +29,12 @@ const BIBTEX_DATABASE = {
   doi       = {10.1016/j.jpowsour.2024.233761}
 }`,
 
-  joy2024neurips: `@inproceedings{joy2024neurips,
-  title     = {Monotonicity Penalties in Deep Recurrent Sequence Models for Physical Degradation},
-  author    = {Joy, MD Sanaul Haque and Collaborators},
-  booktitle = {NeurIPS Workshop on Scientific Machine Learning (SciML)},
-  year      = {2024}
+  joy2025icerie: `@inproceedings{joy2025comparative,
+  title     = {Comparative Analysis of Machine Learning Models for Lithium-Ion Battery RUL Prediction},
+  author    = {Joy, MD Sanaul Haque and Das, Prasanjit},
+  booktitle = {Proceedings of the International Conference on Engineering Research, Innovation and Education (ICERIE)},
+  year      = {2025},
+  note      = {Selected for Oral Presentation. Undergraduate Thesis Project, Department of Mechanical Engineering, CUET}
 }`,
 
   joy2025transfer: `@article{joy2025transfer,

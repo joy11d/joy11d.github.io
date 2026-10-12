@@ -3142,38 +3142,43 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
             </div>
           </article>
 
-          <!-- Paper 3 -->
-          <article class="pub-card glass-panel" data-type="conference" data-year="2024">
+          <!-- Paper 3: Conference -->
+          <article class="pub-card glass-panel" data-type="conference" data-year="2025">
             <div class="pub-badge-row">
-              <span class="pub-type-tag conference">NeurIPS SciML 2024</span>
-              <span class="pub-year">2024</span>
+              <span class="pub-type-tag conference">ICERIE 2025</span>
+              <span class="pub-status-badge">Selected for Presentation</span>
+              <span class="pub-year">2025</span>
             </div>
             <h3 class="pub-title">
-              Monotonicity Penalties in Deep Recurrent Sequence Models for Physical Degradation
+              Comparative Analysis of Machine Learning Models for Lithium-Ion Battery RUL Prediction
             </h3>
             <p class="pub-authors">
-              <strong>MD Sanaul Haque Joy*</strong>, Collaborator 1, Collaborator 2
+              <strong>MD Sanaul Haque Joy*</strong>, Prof. Dr. Prasanjit Das
             </p>
             <p class="pub-venue">
-              <em>NeurIPS Workshop on Scientific Machine Learning (SciML)</em>, 2024.
+              <em>International Conference on Engineering Research, Innovation and Education (ICERIE)</em>, 2025.
+              <span style="display: inline-block; margin-left: 6px; color: var(--accent-cyan); font-size: 0.84rem; font-weight: 500;">(Undergraduate Thesis Project &bull; Selected for Presentation)</span>
             </p>
             <div class="pub-abstract" id="abs-3">
-              We present an unconstrained soft penalty formulation for multi-step recurrent neural networks guaranteeing monotonic lifetime trajectory outputs without requiring specialized non-negative projection layers.
+              Accurate prediction of the Remaining Useful Life (RUL) of lithium-ion batteries is essential for reliable predictive maintenance and the safe, economical operation of electric vehicles and energy storage systems. Physics based degradation models require deep domain knowledge and generalize poorly, motivating data driven alternatives. However, it remains unclear which machine learning model is most accurate and robust on batteries unseen during training. This study develops and compares seven models, which are Random Forest (RF), XGBoost, Support Vector Regression (SVR), Gaussian Process Regression (GPR), Multi-Layer Perceptron (MLP), Long Short-Term Memory (LSTM) and Gated Recurrent Unit (GRU), on a public dataset of fourteen NMC-LCO 18650 cells using Mean Absolute Error (MAE), Root Mean Square Error (RMSE) and the coefficient of determination (R&sup2;). Two validation schemes were applied: a conventional random 80/20 split and a stricter leave battery out protocol emulating deployment on new cells. Under the random split, RF gave the lowest error (MAE 2.12 cycles), but its MAE rose by 135% under leave battery out testing, revealing that random splits inflate performance through cell level data leakage. On unseen batteries the recurrent GRU generalized best (MAE 4.49 cycles, RMSE 5.23 cycles, R&sup2; 0.9997). SHAP analysis showed that tabular models depend almost solely on cycle index, whereas LSTM and GRU exploit physical degradation indicators, explaining their superior generalization. GRU is therefore recommended for practical battery health management, and leave battery out validation as the realistic benchmark for battery prognostics.
             </div>
             <div class="pub-actions">
               <button class="btn-action toggle-abs-btn" onclick="toggleAbstract('abs-3', this)">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
                 Abstract
               </button>
-              <a href="#" class="btn-action">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                PDF
-              </a>
-              <button class="btn-action bibtex-btn" onclick="openBibtex('joy2024neurips')">
+              <button class="btn-action bibtex-btn" onclick="openBibtex('joy2025icerie')">
                 <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
                 BibTeX
               </button>
-              <a href="#" class="btn-action">Poster Slides</a>
+              <a href="https://github.com/joy11d/battery-rul-prediction" target="_blank" rel="noopener" class="btn-action">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+                Thesis Code
+              </a>
+              <span class="btn-action" style="cursor: default; opacity: 0.9;">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                Undergraduate Thesis
+              </span>
             </div>
           </article>
 
