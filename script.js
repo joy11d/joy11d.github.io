@@ -317,23 +317,63 @@ function showToast(message) {
 }
 
 // ===================================================================
-// 10. CONTACT FORM HANDLER
+// 10. CONTACT FORM HANDLER (FORMSPREE INTEGRATION)
 // ===================================================================
-function handleFormSubmit(e) {
+async function handleFormSubmit(e) {
   e.preventDefault();
-  const name = document.getElementById('contactName').value;
+  const form = document.getElementById('contactForm');
+  const submitBtn = form.querySelector('button[type="submit"]');
+  const btnText = submitBtn.querySelector('span');
   const feedback = document.getElementById('formFeedback');
+  const name = document.getElementById('contactName').value;
 
-  if (feedback) {
-    feedback.innerHTML = `
-      <div style="color: var(--accent-emerald); font-weight: 600; padding: 12px; background: var(--accent-emerald-glow); border-radius: 8px;">
-        ✓ Thank you, ${name}! Your inquiry has been received. You can also reach MD Sanaul Haque Joy directly at <a href="mailto:shjoy11d@gmail.com" style="text-decoration: underline; color: inherit;">shjoy11d@gmail.com</a>.
-      </div>
-    `;
+  const originalText = btnText ? btnText.textContent : 'Send Message';
+  if (btnText) btnText.textContent = 'Sending...';
+  submitBtn.disabled = true;
+
+  try {
+    const data = new FormData(form);
+    const response = await fetch("https://formspree.io/f/myekdnpo", {
+      method: "POST",
+      body: data,
+      headers: {
+        'Accept': 'application/json'
+      }
+    });
+
+    if (response.ok) {
+      if (feedback) {
+        feedback.innerHTML = `
+          <div style="color: var(--accent-emerald); font-weight: 600; padding: 12px; background: var(--accent-emerald-glow); border-radius: 8px; margin-top: 14px; border: 1px solid rgba(16, 185, 129, 0.3);">
+            ✓ Thank you, ${name}! Your message has been sent directly to MD Sanaul Haque Joy's inbox.
+          </div>
+        `;
+      }
+      showToast('Message sent successfully to email!');
+      form.reset();
+    } else {
+      if (feedback) {
+        feedback.innerHTML = `
+          <div style="color: #ef4444; font-weight: 600; padding: 12px; background: rgba(239, 68, 68, 0.15); border-radius: 8px; margin-top: 14px; border: 1px solid rgba(239, 68, 68, 0.3);">
+            ✕ Oops! There was an issue submitting your form. You can also email directly at <a href="mailto:shjoy11d@gmail.com" style="text-decoration: underline; color: inherit;">shjoy11d@gmail.com</a>.
+          </div>
+        `;
+      }
+      showToast('Error sending message. Please email directly.');
+    }
+  } catch (err) {
+    if (feedback) {
+      feedback.innerHTML = `
+        <div style="color: #ef4444; font-weight: 600; padding: 12px; background: rgba(239, 68, 68, 0.15); border-radius: 8px; margin-top: 14px; border: 1px solid rgba(239, 68, 68, 0.3);">
+          ✕ Network error. Please email directly at <a href="mailto:shjoy11d@gmail.com" style="text-decoration: underline; color: inherit;">shjoy11d@gmail.com</a>.
+        </div>
+      `;
+    }
+    showToast('Failed to connect. Please email directly.');
+  } finally {
+    if (btnText) btnText.textContent = originalText;
+    submitBtn.disabled = false;
   }
-
-  showToast('Message sent successfully!');
-  document.getElementById('contactForm').reset();
 }
 
 // Update year in footer
