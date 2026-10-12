@@ -35,13 +35,6 @@ const BIBTEX_DATABASE = {
   booktitle = {Proceedings of the International Conference on Engineering Research, Innovation and Education (ICERIE)},
   year      = {2025},
   note      = {Selected for Oral Presentation. Undergraduate Thesis Project, Department of Mechanical Engineering, CUET}
-}`,
-
-  joy2025transfer: `@article{joy2025transfer,
-  title     = {Cross-Chemistry Transfer of Scientific Recurrent Models in Energy Storage Under Rapid Cycling},
-  author    = {Joy, MD Sanaul Haque and Collaborators},
-  journal   = {arXiv preprint arXiv:2502.09182},
-  year      = {2025}
 }`
 };
 
@@ -145,6 +138,8 @@ function filterPublications() {
   const activeBtn = document.querySelector('.pub-filter-btn.active');
   const activeFilter = activeBtn ? activeBtn.getAttribute('data-filter') : 'all';
   const query = searchInput ? searchInput.value.toLowerCase().trim() : '';
+  const emptyState = document.getElementById('pubEmptyState');
+  let visibleCount = 0;
 
   pubCards.forEach(card => {
     const cardType = card.getAttribute('data-type');
@@ -155,10 +150,15 @@ function filterPublications() {
 
     if (matchesFilter && matchesSearch) {
       card.style.display = 'block';
+      visibleCount++;
     } else {
       card.style.display = 'none';
     }
   });
+
+  if (emptyState) {
+    emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
 }
 
 filterBtns.forEach(btn => {

@@ -3045,10 +3045,10 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
         <!-- Filter & Search Controls -->
         <div class="pub-controls">
           <div class="pub-filter-tabs">
-            <button class="pub-filter-btn active" data-filter="all">All (4)</button>
+            <button class="pub-filter-btn active" data-filter="all">All (3)</button>
             <button class="pub-filter-btn" data-filter="journal">Journals (2)</button>
             <button class="pub-filter-btn" data-filter="conference">Conferences (1)</button>
-            <button class="pub-filter-btn" data-filter="preprint">Preprints (1)</button>
+            <button class="pub-filter-btn" data-filter="preprint">Preprints (0)</button>
           </div>
 
           <div class="pub-search-wrapper">
@@ -3174,40 +3174,9 @@ L_total = F.smooth_l1_loss(y_pred, y_true) + \
             </div>
           </article>
 
-          <!-- Paper 4 -->
-          <article class="pub-card glass-panel" data-type="preprint" data-year="2025">
-            <div class="pub-badge-row">
-              <span class="pub-type-tag preprint">arXiv Preprint</span>
-              <span class="pub-year">2025</span>
-            </div>
-            <h3 class="pub-title">
-              Cross-Chemistry Transfer of Scientific Recurrent Models in Energy Storage Under Rapid Cycling
-            </h3>
-            <p class="pub-authors">
-              <strong>MD Sanaul Haque Joy*</strong>, Collaborator 1
-            </p>
-            <p class="pub-venue">
-              <em>arXiv:2502.09182 [cs.LG / stat.ML]</em>, 2025.
-            </p>
-            <div class="pub-abstract" id="abs-4">
-              Investigating zero-shot transfer performance of physics-constrained architectures trained on LFP cells when deployed on high-nickel NMC chemistry cycling profiles.
-            </div>
-            <div class="pub-actions">
-              <button class="btn-action toggle-abs-btn" onclick="toggleAbstract('abs-4', this)">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                Abstract
-              </button>
-              <a href="#" class="btn-action">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
-                arXiv PDF
-              </a>
-              <button class="btn-action bibtex-btn" onclick="openBibtex('joy2025transfer')">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                BibTeX
-              </button>
-            </div>
-          </article>
-
+          <div id="pubEmptyState" class="pub-empty-state" style="display: none; text-align: center; padding: 48px 20px; color: var(--text-muted); font-size: 0.95rem;">
+            No preprints currently listed.
+          </div>
         </div>
       </div>
     </section>
