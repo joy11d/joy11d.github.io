@@ -259,12 +259,14 @@ img {
 }
 
 .nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 14px 24px;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 14px 40px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 20px;
 }
 
 .brand-logo {
@@ -275,6 +277,13 @@ img {
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  flex: 1;
 }
 
 .logo-symbol {
@@ -2056,6 +2065,10 @@ img {
 }
 
 @media (max-width: 768px) {
+  .nav-container {
+    padding: 12px 18px;
+  }
+
   .nav-menu {
     position: fixed;
     top: 69px;
